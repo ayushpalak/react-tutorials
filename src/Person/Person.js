@@ -47,13 +47,15 @@ const Dog = (props) => {
     const [currentState,updatedState] = useState({weight:'20kg'}
     
     );
-    button_click_handler = () =>{
-        updatedState({weight:'25kg'});
+    const button_click_handler = () =>{
+        updatedState(
+            {weight:'25kg'}
+        );
     }
     
     return (
         <div>
-            <button onClick={this.button_click_handler}> change weight </button>
+            <button onClick={button_click_handler}> change weight </button>
             <p>
                 This is a {props.value}. Weight is {currentState.weight} 
             </p> 
