@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person.js'
+import {Person,Dog} from './Person/Person.js'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Person className="Person" name="ayush" food="biryani"> this is inside Person tag. </Person>
+      <div>
+        <Person name="ayush" food="biryani"> this is a Person tag. </Person>
+        <Dog value='German Shepherd'></Dog>
       </div>
     );
   }
