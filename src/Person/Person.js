@@ -88,11 +88,28 @@ const Dog = (props) => {
             <button style={style} onClick={buttonClickHandler} > toggle </button>
             { currentState.flag ?
             <div>
-                <p style={para_style}> This para will come and go </p>
+                <p style={para_style}> para will come and go </p>
             </div> : null
             }
         </div>
     );
 };
 
-export  {Person, Dog};  // this is how multiple components are exported. use default when there is only one component.
+const MagicComponent = (props) => {
+    const style = {
+        "width": "60%",
+        "margin": "16px auto",
+        "border": "1px solid #eee",
+        "box-shadow": "0 2px 3px #ccc",
+        "padding": "16px",
+        "text-align": "center"
+    };
+    return (
+        <div style={style}>
+            <p onClick={props.click}> {props.name} will be deleted if you clicked on this. </p>
+            <input type="text" onChange={props.magicOnChangeHandler} />
+        </div>
+    );
+}
+
+export  {Person, Dog, MagicComponent};  // this is how multiple components are exported. use default when there is only one component.
