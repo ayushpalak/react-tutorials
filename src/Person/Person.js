@@ -112,4 +112,44 @@ const MagicComponent = (props) => {
     );
 }
 
-export  {Person, Dog, MagicComponent};  // this is how multiple components are exported. use default when there is only one component.
+
+class ApiComponent extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        error: null,
+        isLoaded: false,
+        items: ["no value"],
+      };
+    }
+  
+    makeApicall = () =>{
+      fetch("http://52.1.79.43:9002/api/SampleAsset/001")
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              items: "fetched"
+            });
+            console.log(result);
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
+    }
+
+    render(props) {
+        return (
+            <div id="responsediv" onClick={this.makeApicall}> hello {this.state.items}</div>
+        );
+    };
+}
+export  {Person, Dog, MagicComponent, ApiComponent};  // this is how multiple components are exported. use default when there is only one component.

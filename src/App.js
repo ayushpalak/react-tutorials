@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Person,Dog,MagicComponent} from './Person/Person.js'
+import {Person,Dog,MagicComponent,ApiComponent} from './Person/Person.js'
 
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
   magicOnChangeHandler = (event,index) => {
     var _magicnames = [...this.state.magicnames]
     //_magicnames.findIndex
-    this.setState({magicnames:newmagicnames}); 
+    this.setState({magicnames:_magicnames}); 
   }
 
   // labrador, great dane
@@ -55,6 +55,7 @@ class App extends Component {
               return (<MagicComponent magicOnChangeHandler = {(event) => this.magicOnChangeHandler(event,index)} click={() => this.deleteEventHandler(index)} name={name.name} key={name.id}/>);
           })
         }
+        <ApiComponent />
       </div>
     );
   }
